@@ -19,8 +19,10 @@ It supports multiple environments (e.g., `dev`, `staging`, `prod`), enforces enc
 
 ## 🧪 Testing
 
+```sh
 cd test/
 go test -v
+```
 
 
 
