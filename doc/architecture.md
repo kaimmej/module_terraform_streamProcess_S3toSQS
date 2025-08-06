@@ -15,18 +15,19 @@ This module implements the [Claim Check pattern](https://docs.microsoft.com/en-u
 
 ```mermaid
 flowchart LR
-    A[Producer] -- Uploads payload --> B[S3 Bucket]
-    A -- Sends S3 object reference --> C[SQS Queue]
-    D[Consumer] -- Reads message --> C
-    D -- Fetches payload --> B
+    A[Producer] -- Uploads full, encrypted payload --> B[S3 Bucket]
+    B -- Generates claim check (reference + metadata) --> C[SQS Queue]
+    C -- Claim check message --> D[Consumer]
+    D -- Uses claim check to fetch encrypted payload --> B
+    B:::encrypted
+
+    classDef encrypted fill:#e0f7fa,stroke:#00796b,stroke-width:2;
 ```
 
-## Sequence
-
-1. **Producer** uploads the full payload to the S3 bucket.
-2. Producer sends a lightweight message to the SQS queue containing a reference (e.g., S3 object key or URL).
-3. **Consumer** reads the message from SQS, retrieves the reference, and fetches the payload from S3.
-4. All data at rest is encrypted using KMS-managed keys.
+- The **Producer** uploads the original, encrypted data to the S3 bucket.
+- The **S3 bucket** (or the application after upload) generates a claim check (reference and metadata) and sends only this lightweight packet to the **SQS queue**.
+- The **Consumer** reads the claim check from SQS and uses it to fetch the encrypted payload from S3.
+- The original data remains encrypted in S3 at all times.
 
 ## Security
 
