@@ -11,7 +11,6 @@ It supports multiple environments (e.g., `dev`, `staging`, `prod`), enforces enc
 - Encrypted S3 bucket for storing large payloads (SSE-KMS)
 - Event notification from S3 to SQS
 - Encrypted SQS queue for claim-check messages
-- Optional KMS key management (create or reuse)
 - Environment-specific naming and tagging
 - Secure IAM policies to integrate with existing identities
 
@@ -58,7 +57,6 @@ module_terraform_streamProcess_S3toSQS/
 | region         | AWS region to deploy                        | string | ✅        |
 | s3_bucket_name | Name of the S3 bucket                       | string | ✅        |
 | sqs_queue_name | Name of the SQS queue                       | string | ✅        |
-| kms_key        | KMS key  (optional)                         | string | ❌        |
 | tags           | Common tags to apply to resources (optional)| map    | ❌        |
 
 
@@ -69,7 +67,6 @@ module_terraform_streamProcess_S3toSQS/
 |----------------|----------------------------------|
 | s3_bucket_arn  | ARN of the created S3 bucket     |
 | sqs_queue_arn  | ARN of the created SQS queue     |
-| kms_key_arn    | ARN of the KMS encryption key    |
 | queue_url      | URL of the SQS queue             |
 
 
@@ -84,7 +81,7 @@ module "claim_check" {
   region            = "us-west-2"
   s3_bucket_name    = "dev-claimcheck-bucket"
   sqs_queue_name    = "dev-claimcheck-queue"
-  kms_key_alias     = "alias/claimcheck-key"
+
   tags = {
     Project     = "stream-processing"
     Environment = "dev"
