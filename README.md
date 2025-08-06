@@ -26,6 +26,7 @@ go test -v
 
 ## 📁 Module Structure
 
+```text
 module_terraform_streamProcess_S3toSQS/
 ├── modules/
 │   └── claim_check/
@@ -43,6 +44,7 @@ module_terraform_streamProcess_S3toSQS/
 ├── doc/
 │   └── architecture.md
 └── README.md
+```
 
 
 
