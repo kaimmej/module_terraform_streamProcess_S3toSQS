@@ -31,7 +31,7 @@ go test -v
 ```text
 module_terraform_streamProcess_S3toSQS/
 ├── modules/
-│   └── claim_check/
+│   └── S3toSQS/
 │       ├── main.tf
 │       ├── variables.tf
 │       ├── outputs.tf

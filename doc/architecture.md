@@ -6,16 +6,16 @@ This module implements the [Claim Check pattern](https://docs.microsoft.com/en-u
 
 ## Components
 
-- **Amazon S3**: Stores large or sensitive payloads securely using server-side encryption (SSE-KMS).
-- **Amazon SQS**: Receives lightweight messages containing references (claim checks) to the payloads stored in S3.
-- **AWS KMS**: Manages encryption keys for both S3 and SQS, ensuring data is encrypted at rest.
-- **IAM Policies**: Restrict access to only the necessary resources and actions for secure operation.
+- **Amazon S3**: Receives payload - Stores large amount of sensitive data securely using server-side encryption. S3-Event triggers smaller packet of the data, including the bucket and object key to be pushed to SQS.
+- **Amazon SQS**: Receives lightweight messages containing references (claim checks - i.e. Bucket and Object keys) to the payload-data stored in S3.
+- **AWS KMS**: ??? Not sure if KMS is actually required ??? S3 supports encryption at rest. 
+- **IAM Policies**: Least priviledge policies
 
 ## Flow Diagram
 
 ```mermaid
 flowchart LR
-    A[Producer] -- Uploads full, encrypted payload --> B[S3 Bucket]
+    A[Producer] -- Uploads full payload to S3 --> B[S3 Bucket]
     B -- Generates claim check (reference + metadata) --> C[SQS Queue]
     C -- Claim check message --> D[Consumer]
     D -- Uses claim check to fetch encrypted payload --> B
