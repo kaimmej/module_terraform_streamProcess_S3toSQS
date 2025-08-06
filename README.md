@@ -4,8 +4,6 @@ This Terraform module provisions the necessary AWS infrastructure to implement t
 
 It supports multiple environments (e.g., `dev`, `staging`, `prod`), enforces encryption at rest and in transit, and integrates easily with existing application IAM roles.
 
----
-
 
 ## 📦 Features
 
@@ -16,24 +14,7 @@ It supports multiple environments (e.g., `dev`, `staging`, `prod`), enforces enc
 - Environment-specific naming and tagging
 - Secure IAM policies to integrate with existing identities
 
----
 
-## 🚀 Usage
-
-```hcl
-module "claim_check" {
-  source            = "git::https://github.com/kaimmej/module_terraform_streamProcess_S3toSQS.git"
-  
-  environment       = "dev"
-  region            = "us-west-2"
-  s3_bucket_name    = "dev-claimcheck-bucket"
-  sqs_queue_name    = "dev-claimcheck-queue"
-  kms_key_alias     = "alias/claimcheck-key"
-  tags = {
-    Project     = "stream-processing"
-    Environment = "dev"
-  }
-}
 
 ---
 
@@ -41,7 +22,6 @@ module "claim_check" {
 
 cd test/
 go test -v
-
 
 ---
 
@@ -64,7 +44,6 @@ module_terraform_streamProcess_S3toSQS/
 ├── doc/
 │   └── architecture.md
 └── README.md
-
 
 
 ---
@@ -91,3 +70,22 @@ module_terraform_streamProcess_S3toSQS/
 | sqs_queue_arn  | ARN of the created SQS queue     |
 | kms_key_arn    | ARN of the KMS encryption key    |
 | queue_url      | URL of the SQS queue             |
+
+---
+
+## 🚀 Usage
+
+```hcl
+module "claim_check" {
+  source            = "git::https://github.com/kaimmej/module_terraform_streamProcess_S3toSQS.git"
+  
+  environment       = "dev"
+  region            = "us-west-2"
+  s3_bucket_name    = "dev-claimcheck-bucket"
+  sqs_queue_name    = "dev-claimcheck-queue"
+  kms_key_alias     = "alias/claimcheck-key"
+  tags = {
+    Project     = "stream-processing"
+    Environment = "dev"
+  }
+}
