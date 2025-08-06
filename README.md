@@ -5,6 +5,7 @@ This Terraform module provisions the necessary AWS infrastructure to implement t
 It supports multiple environments (e.g., `dev`, `staging`, `prod`), enforces encryption at rest and in transit, and integrates easily with existing application IAM roles.
 
 
+
 ## 📦 Features
 
 - Encrypted S3 bucket for storing large payloads (SSE-KMS)
@@ -16,14 +17,12 @@ It supports multiple environments (e.g., `dev`, `staging`, `prod`), enforces enc
 
 
 
----
-
 ## 🧪 Testing
 
 cd test/
 go test -v
 
----
+
 
 ## 📁 Module Structure
 
@@ -46,7 +45,6 @@ module_terraform_streamProcess_S3toSQS/
 └── README.md
 
 
----
 
 ## 🧩 Inputs
 
@@ -60,7 +58,6 @@ module_terraform_streamProcess_S3toSQS/
 | tags           | Common tags to apply to resources           | map    | ✅        |
 
 
----
 
 ## ✅ Outputs
 
@@ -71,7 +68,7 @@ module_terraform_streamProcess_S3toSQS/
 | kms_key_arn    | ARN of the KMS encryption key    |
 | queue_url      | URL of the SQS queue             |
 
----
+
 
 ## 🚀 Usage
 
