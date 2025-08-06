@@ -6,7 +6,7 @@ It supports multiple environments (e.g., `dev`, `staging`, `prod`), enforces enc
 
 
 
-## 📦 Features
+### 📦 Features
 
 - Encrypted S3 bucket for storing large payloads (SSE-KMS)
 - Event notification from S3 to SQS
@@ -17,7 +17,7 @@ It supports multiple environments (e.g., `dev`, `staging`, `prod`), enforces enc
 
 
 
-## 🧪 Testing
+### 🧪 Testing
 
 ```sh
 cd test/
@@ -26,7 +26,7 @@ go test -v
 
 
 
-## 📁 Module Structure
+### 📁 Module Structure
 
 ```text
 module_terraform_streamProcess_S3toSQS/
@@ -50,7 +50,7 @@ module_terraform_streamProcess_S3toSQS/
 
 
 
-## 🧩 Inputs
+### 🧩 Inputs
 
 | Name           | Description                                 | Type   | Required |
 |----------------|---------------------------------------------|--------|----------|
@@ -63,7 +63,7 @@ module_terraform_streamProcess_S3toSQS/
 
 
 
-## ✅ Outputs
+### ✅ Outputs
 
 | Name           | Description                      |
 |----------------|----------------------------------|
@@ -74,7 +74,7 @@ module_terraform_streamProcess_S3toSQS/
 
 
 
-## 🚀 Usage
+### 🚀 Usage
 
 ```hcl
 module "claim_check" {
