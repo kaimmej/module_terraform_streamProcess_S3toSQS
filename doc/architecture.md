@@ -30,7 +30,7 @@ flowchart LR
 
 ## Security
 
-- **Encryption at Rest**: Both S3 and SQS use KMS-managed keys for encryption.
+- **Encryption at Rest**: S3 configured for encryption at rest. 
 - **Encryption in Transit**: All communication uses HTTPS/TLS.
 - **IAM Policies**: Least-privilege access for producers and consumers.
 
@@ -38,7 +38,7 @@ flowchart LR
 
 - **Multiple Environments**: Supports `dev`, `staging`, `prod`, etc.
 - **Custom Tags**: Apply organization-specific tags to all resources.
-- **KMS Key Management**: Optionally create a new KMS key or use an existing one.
+
 
 ## Example Message
 

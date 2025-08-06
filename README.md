@@ -8,7 +8,7 @@ It supports multiple environments (e.g., `dev`, `staging`, `prod`), enforces enc
 
 ### 📦 Features
 
-- Encrypted S3 bucket for storing large payloads (SSE-KMS)
+- Encrypted S3 bucket for storing large payloads
 - Event notification from S3 to SQS
 - Encrypted SQS queue for claim-check messages
 - Environment-specific naming and tagging
