@@ -58,8 +58,8 @@ module_terraform_streamProcess_S3toSQS/
 | region         | AWS region to deploy                        | string | ✅        |
 | s3_bucket_name | Name of the S3 bucket                       | string | ✅        |
 | sqs_queue_name | Name of the SQS queue                       | string | ✅        |
-| kms_key_alias  | KMS key alias (optional if using existing)  | string | ✅        |
-| tags           | Common tags to apply to resources           | map    | ✅        |
+| kms_key        | KMS key  (optional)                         | string | ❌        |
+| tags           | Common tags to apply to resources (optional)| map    | ❌        |
 
 
 
